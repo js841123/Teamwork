@@ -14,6 +14,7 @@ class AppleCrawler(scrapy.Spider):
         res = BeautifulSoup(response.body)
         ex1item = Yahooex1Item()
         ex1item['product'] = res.select('h1')[0].text
+        ex1item['ID'] = res.select('span[itemprop="productID"]')[0].text
         ex1item['span'] = res.select('.price')[0].text
         ex1item['point'] = res.select('.store')[0].text
         return ex1item

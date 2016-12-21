@@ -11,6 +11,7 @@ import scrapy
 class Yahooex1Item(scrapy.Item):
     # define the fields for your item here like:
     product = scrapy.Field()
+    ID = scrapy.Field()
     span = scrapy.Field()
     point = scrapy.Field()
     # name = scrapy.Field()
