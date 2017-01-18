@@ -4,7 +4,7 @@ from YahooEx1.items import Yahooex1Item
 
 class AppleCrawler(scrapy.Spider):
     name ='YahooEx1'
-    start_urls = ['https://tw.mall.yahoo.com/152982163-category.html?img_only=0&sort_by=[rank]&order_by=0']
+    start_urls = ['https://tw.mall.yahoo.com/2144872365-category.html?img_only=0&sort_by=%5Brank%5D&order_by=0','https://tw.mall.yahoo.com/2144872356-category.html?img_only=0&sort_by=%5Brank%5D&order_by=0','https://tw.mall.yahoo.com/2144872335-category.html?img_only=0&sort_by=%5Brank%5D&order_by=0','https://tw.mall.yahoo.com/979412458-category.html?img_only=0&sort_by=%5Brank%5D&order_by=0','https://tw.mall.yahoo.com/2144872545-category.html?img_only=0&sort_by=%5Brank%5D&order_by=0']
     def parse(self, response):
         res = BeautifulSoup(response.body)
         for news in res.select('.P-18'):
