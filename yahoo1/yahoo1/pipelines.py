@@ -6,6 +6,6 @@
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
 
-class Yahooex1Pipeline(object):
+class Yahoo1Pipeline(object):
     def process_item(self, item, spider):
         return item
