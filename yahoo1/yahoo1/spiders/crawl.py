@@ -1,4 +1,5 @@
 import scrapy
+import datetime
 from bs4 import BeautifulSoup
 from yahoo1.items import Yahoo1Item
 
@@ -21,14 +22,15 @@ class AppleCrawler(scrapy.Spider):
     def parse_detail2(self, response):
         res = BeautifulSoup(response.body)
         #print res.select('h1')[0].text
-        ex1item = Yahoo1Item()
-        ex1item['name'] = res.select('h1')[0].text
-        ex1item['ID'] = res.select('span[itemprop="productID"]')[0].text
-	#print res.select('div[class="cat-select"]')[0].text
-	#ex1item['tag_cat'] = res.select('div[class="cat-select"]')[0].text
-	abc = res.select('[name=keywords],content')[0]['content']
-	abclist = abc.split(',')
-	ex1item['tag'] = abclist
-        ex1item['price'] = res.select('.price')[0].text
-        ex1item['rate'] = res.select('.store')[0].text
-        return ex1item
+	if len(res.select('#ypsitemrating'))!=0:
+	    ex1item = Yahoo1Item()
+	    ex1item['name'] = res.select('h1')[0].text
+            ex1item['ID'] = res.select('span[itemprop="productID"]')[0].text
+	    abc = res.select('[name=keywords],content')[0]['content']
+	    abclist = abc.split(',')
+	    ex1item['tag'] = abclist
+            ex1item['price'] = res.select('.price')[0].text
+            ex1item['rate'] = res.select('.store')[0].text
+	    ex1item['date'] = datetime.datetime.now().strftime("%Y-%m-%d")
+            return ex1item
+
