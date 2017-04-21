@@ -27,8 +27,9 @@ class AppleCrawler(scrapy.Spider):
 	    ex1item['name'] = res.select('h1')[0].text
             ex1item['ID'] = res.select('span[itemprop="productID"]')[0].text
 	    abc = res.select('[name=keywords],content')[0]['content']
-	    abclist = abc.split(',')
-	    ex1item['tag'] = abclist
+	    #abclist = abc.split(',')
+	    #ex1item['tag'] = abclist
+	    ex1item['tag'] = abc
             ex1item['price'] = res.select('.price')[0].text
             ex1item['rate'] = res.select('.store')[0].text
 	    ex1item['date'] = datetime.datetime.now().strftime("%Y-%m-%d")
