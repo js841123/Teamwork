@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for yahoo1 project
+# Scrapy settings for yshop project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,17 +9,17 @@
 #     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'yahoo1'
+BOT_NAME = 'yshop'
 
-SPIDER_MODULES = ['yahoo1.spiders']
-NEWSPIDER_MODULE = 'yahoo1.spiders'
+SPIDER_MODULES = ['yshop.spiders']
+NEWSPIDER_MODULE = 'yshop.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'yahoo1 (+http://www.yourdomain.com)'
+#USER_AGENT = 'yshop (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -47,13 +47,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'yahoo1.middlewares.Yahoo1SpiderMiddleware': 543,
+#    'yshop.middlewares.YshopSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'yahoo1.middlewares.MyCustomDownloaderMiddleware': 543,
+#    'yshop.middlewares.MyCustomDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -64,11 +64,10 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-DOWNLOAD_DELAY = 1
 ITEM_PIPELINES = {
-    'yahoo1.pipelines.Yahoo1Pipeline': 300,
+    'yshop.pipelines.YshopPipeline': 300,
 }
-IMAGES_STORE = '.'
+
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
 #AUTOTHROTTLE_ENABLED = True

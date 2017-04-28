@@ -16,5 +16,7 @@ class Yahoo1Item(scrapy.Item):
     rate = scrapy.Field()
     tag = scrapy.Field()
     date = scrapy.Field()
+    image_urls = scrapy.Field()
+    images = scrapy.Field()
     # name = scrapy.Field()
     #pass
