@@ -7,7 +7,7 @@ from yshop.items import YshopItem
 class Yahoo3shopSpider(scrapy.Spider):
     name = "yahoo3shop"
     #allowed_domains = ["yahoo3shop.com"]
-    start_urls = ['https://tw.mall.yahoo.com/search?m=list&sid=s3&ccatid=242&s=-sc_salerank&view=image&path=197%2C242&b=0']
+    start_urls = ['https://tw.mall.yahoo.com/search?m=list&sid=s3&ccatid=242&s=-sc_salerank&view=image&path=197%2C242&b=0','https://tw.mall.yahoo.com/search?m=list&sid=s3&ccatid=242&s=-sc_salerank&view=image&path=197%2C242&b=48','https://tw.mall.yahoo.com/search?m=list&sid=s3&ccatid=242&s=-sc_salerank&view=image&path=197%2C242&b=96','https://tw.mall.yahoo.com/search?m=list&sid=s3&ccatid=242&s=-sc_salerank&view=image&path=197%2C242&b=144']
     def parse(self, response):
         res = BeautifulSoup(response.body, "lxml")
 	#print res.text
