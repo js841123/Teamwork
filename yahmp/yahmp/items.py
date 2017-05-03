@@ -19,4 +19,5 @@ class YahmpItem(scrapy.Item):
     date = scrapy.Field()
     image_urls = scrapy.Field()
     images = scrapy.Field()
+    shop = scrapy.Field()
     #pass

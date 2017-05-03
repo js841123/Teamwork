@@ -7,7 +7,7 @@ from yahmp.items import YahmpItem
 class YahoospiSpider(scrapy.Spider):
     name = "yahoospi"
     #allowed_domains = ["yahoospi.com"]
-    start_urls = ['https://tw.mall.yahoo.com/%E7%B2%89%E9%A4%85-%E8%87%89%E9%83%A8%E5%BD%A9%E5%A6%9D-152982252-category.html?.r=2006859672']
+    start_urls = ['https://tw.mall.yahoo.com/%E8%85%AE%E7%B4%85-%E4%BF%AE%E5%AE%B9%E9%A4%85-%E8%87%89%E9%83%A8%E5%BD%A9%E5%A6%9D-152984790-category.html?.r=1194045916']
 
     def parse(self, response):
         res = BeautifulSoup(response.body, "lxml")
@@ -26,4 +26,5 @@ class YahoospiSpider(scrapy.Spider):
 	item['date'] = datetime.datetime.now().strftime("%Y-%m-%d")
 	urls = res.select('img[class="main-image current"]')[0]['src']
 	item['image_urls'] = urls
+	item['shop'] = res.select('.tit-word h2')[0].text
         return item

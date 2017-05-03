@@ -18,5 +18,6 @@ class YshopItem(scrapy.Item):
     date = scrapy.Field()
     image_urls = scrapy.Field()
     images = scrapy.Field()
+    shop = scrapy.Field()
     # name = scrapy.Field()
     #pass

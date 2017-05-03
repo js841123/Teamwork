@@ -10,7 +10,7 @@ class YahmpPipeline(object):
     def open_spider(self, spider):
 	self.conn = sqlite3.connect('yahoo.sqlite')
 	self.cur = self.conn.cursor()
-	self.cur.execute('create table if not exists yahoo_makup(name varchar(1000), ID varchar(1000), price varchar(1000), tag varchar(3000), date text,image_urls text)')
+	self.cur.execute('create table if not exists yahoo_makup2(name varchar(1000), ID varchar(1000), price varchar(1000), tag varchar(3000), date text,image_urls text)')
 	#pass     
     def close_spider(self, spider):
         self.conn.commit()
@@ -19,6 +19,6 @@ class YahmpPipeline(object):
     def process_item(self, item, spider):
 	col = ','.join(item.keys())
         placeholders = ','.join(len(item) * '?')
-        sql = 'insert into yahoo_makup({}) values({})'
+        sql = 'insert into yahoo_makup2({}) values({})'
 	self.cur.execute(sql.format(col, placeholders), item.values())
         return item
